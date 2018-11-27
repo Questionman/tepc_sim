@@ -1,0 +1,8 @@
+build/B1.root
+build/CMakeFiles
+*.o
+*.out
+*.in
+build/Makefile
+build/exampleB1
+
