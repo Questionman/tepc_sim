@@ -1,4 +1,4 @@
-/run/numberOfThreads 2
+/run/numberOfThreads 96
 /run/initialize
 /gps/particle proton
 #/gps/ion 26 56
@@ -22,6 +22,6 @@
 /gps/ang/mintheta 0 deg
 /gps/ang/maxtheta 90 deg
 /gps/source/list
-/run/printProgress 100
+/run/printProgress 1000000
 /tracking/verbose 0
-/run/beamOn 1
+/run/beamOn 1000000000

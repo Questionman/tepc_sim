@@ -60,7 +60,7 @@ void B1RunData::FillPerEvent()
   // accumulate statistic
   // in the order od the histograms, ntuple columns declarations
   G4double let = fEdep[0] * 750; // 1000 / (4/3)  MeV -> keV + mean cord length
-  analysisManager->FillH1(0, let);
+//  analysisManager->FillH1(0, let);
   analysisManager->FillNtupleDColumn(0, let);
   analysisManager->AddNtupleRow();  
 }

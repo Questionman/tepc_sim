@@ -83,7 +83,7 @@ B1RunAction::B1RunAction()
   //
   
   // Creating histograms
-  analysisManager->CreateH1("LET","LET in inner propane", 100, 0., 1000*MeV);
+//  analysisManager->CreateH1("LET","LET in inner propane", 100, 0., 1000*MeV);
  
   // Creating ntuple
   //
@@ -193,7 +193,7 @@ void B1RunAction::EndOfRunAction(const G4Run* run)
   // print histogram statistics
   //
   auto analysisManager = G4AnalysisManager::Instance();
-  if ( analysisManager->GetH1(0) ) {
+/*  if ( analysisManager->GetH1(0) ) {
     G4cout << G4endl << " ----> print histograms statistic ";
     if(isMaster) {
       G4cout << "for the entire run " << G4endl << G4endl; 
@@ -207,7 +207,7 @@ void B1RunAction::EndOfRunAction(const G4Run* run)
        << " rms = " 
        << G4BestUnit(analysisManager->GetH1(0)->rms(),  "Energy") << G4endl;   
    }
-
+*/
   // save histograms & ntuple
   //
   analysisManager->Write();
