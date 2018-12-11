@@ -101,7 +101,7 @@ G4VPhysicalVolume* B1DetectorConstruction::Construct()
   G4double atmosphere_inner_radius = 6.980001*cm;
   G4double world_size = 0.5*m;
   G4double atmosphere_outer_radius = 0.4999*world_size; // m 
-  G4Material* atmosphere_mat = new G4Material("Mars_atmosphere", 1.357*g/cm3,3);
+  G4Material* atmosphere_mat = new G4Material("Mars_atmosphere", 1.348*g/cm3,3);
   atmosphere_mat->AddMaterial(nist->FindOrBuildMaterial("G4_CARBON_DIOXIDE"),0.957);
   atmosphere_mat->AddMaterial(nist->FindOrBuildMaterial("G4_lN2"),0.027);
   atmosphere_mat->AddMaterial(nist->FindOrBuildMaterial("G4_Ar"), 0.016);

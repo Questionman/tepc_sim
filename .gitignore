@@ -1,4 +1,4 @@
-build/B1.root
+*.root
 build/CMakeFiles
 *.o
 *.out

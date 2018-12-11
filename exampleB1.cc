@@ -30,6 +30,7 @@
 
 #include "B1DetectorConstruction.hh"
 #include "B1ActionInitialization.hh"
+#include "B1PhysicsList.hh"
 
 #ifdef G4MULTITHREADED
 #include "G4MTRunManager.hh"
@@ -39,12 +40,14 @@
 
 #include "G4UImanager.hh"
 //#include "QBBC.hh"
+#include "PhysicsList.hh"
+#include "Shielding.hh"
 #include "G4PhysListFactory.hh"
 #include "G4VisExecutive.hh"
 #include "G4UIExecutive.hh"
 #include "G4ImportanceBiasing.hh"
 #include "Randomize.hh"
-
+#include <time.h>
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 int main(int argc,char** argv)
@@ -58,7 +61,7 @@ int main(int argc,char** argv)
 
   // Choose the Random engine
   G4Random::setTheEngine(new CLHEP::RanecuEngine);
-  
+  G4Random::setTheSeed(time(0)); 
   // Construct the default run manager
   //
 #ifdef G4MULTITHREADED
@@ -75,13 +78,18 @@ int main(int argc,char** argv)
 //  G4GeometrySampler mgs(detector->GetWorldVolume(),"neutron");
   
   // Physics list
+ // G4VModularPhysicsList* phys = new Shielding();
+//  runManager->SetUserInitialization(phys);
   G4PhysListFactory factory;
-  G4VModularPhysicsList *physicsList = factory.GetReferencePhysList("QBBC_EMZ");
+  G4VModularPhysicsList *phys = factory.GetReferencePhysList("QBBC_EMZ");
 //  physicsList->RegisterPhysics(new G4ImportanceBiasing(&mgs));
-  physicsList->SetVerboseLevel(1);
-  physicsList->SetDefaultCutValue(0.5);
-  runManager->SetUserInitialization(physicsList);
-    
+  
+//PhysicsList* phys = new PhysicsList;
+
+  phys->SetVerboseLevel(0);
+//  physicsList->SetDefaultCutValue(0.5);
+  runManager->SetUserInitialization(phys);
+   
   // User action initialization
   runManager->SetUserInitialization(new B1ActionInitialization());
    
