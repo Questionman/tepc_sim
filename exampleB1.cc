@@ -81,7 +81,7 @@ int main(int argc,char** argv)
  // G4VModularPhysicsList* phys = new Shielding();
 //  runManager->SetUserInitialization(phys);
   G4PhysListFactory factory;
-  G4VModularPhysicsList *phys = factory.GetReferencePhysList("QBBC_EMZ");
+  G4VModularPhysicsList *phys = factory.GetReferencePhysList("QGSP_BERT_HP_EMY");
 //  physicsList->RegisterPhysics(new G4ImportanceBiasing(&mgs));
   
 //PhysicsList* phys = new PhysicsList;

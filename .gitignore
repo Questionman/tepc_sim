@@ -5,4 +5,6 @@ build/CMakeFiles
 *.in
 build/Makefile
 build/exampleB1
-
+build/CMakeCache.txt
+build/G4History.macro
+*.cmake
