@@ -130,7 +130,7 @@ G4VPhysicalVolume* B1DetectorConstruction::Construct()
   G4Material* env_mat = nist->FindOrBuildMaterial("G4_WATER");
    
   // Option to switch on/off checking of volumes overlaps
-  //
+  //`
   G4bool checkOverlaps = true;
 */
   //     
@@ -208,7 +208,7 @@ G4VPhysicalVolume* B1DetectorConstruction::Construct()
     new G4LogicalVolume(solidDetector,
                         detector_mat,
                         "Al6061");
-  logicDetector -> SetUserLimits(new G4UserLimits(0.1*mm));                                 
+  logicDetector -> SetUserLimits(new G4UserLimits(1*um));                                 
     new G4PVPlacement(0,
                       TEPC_center,
                       logicDetector,
@@ -230,7 +230,7 @@ G4VPhysicalVolume* B1DetectorConstruction::Construct()
   
   G4LogicalVolume* logicOuterPropane =
     new G4LogicalVolume(solidOuterPropane,TEGas,"OuterPropane");  
-  logicOuterPropane->SetUserLimits(new G4UserLimits(1*mm));
+  logicOuterPropane->SetUserLimits(new G4UserLimits(1*um));
   new G4PVPlacement(0, TEPC_center, logicOuterPropane, "OuterPropane", logicWorld, false, 2, true);
   
   //========= A-150================================
@@ -238,12 +238,12 @@ G4VPhysicalVolume* B1DetectorConstruction::Construct()
   0*degree, 180*degree);
 
   G4LogicalVolume* logicA_150 = new G4LogicalVolume(solidA_150,A_150_mat ,"A-150");
-  logicA_150->SetUserLimits(new G4UserLimits(1*mm));
+  logicA_150->SetUserLimits(new G4UserLimits(1*um));
   new G4PVPlacement(0, TEPC_center, logicA_150, "A-150", logicWorld, false, 3, true);
   //=========Inner Propane========================================
   G4Orb* solidInnerPropane = new G4Orb("InnerPropane", 14.99999999999*mm);
   G4LogicalVolume* logicInnerPropane = new G4LogicalVolume(solidInnerPropane,TEGas,"InnerPropane");
-  logicInnerPropane->SetUserLimits(new G4UserLimits(1*mm));
+  logicInnerPropane->SetUserLimits(new G4UserLimits(1*um));
   G4VPhysicalVolume* physicsInnerPropane =  new G4PVPlacement(0, TEPC_center, logicInnerPropane, "InnerPropane", logicWorld, false, 4, true);
   
  // Set Inner Propane as scoring volume

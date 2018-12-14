@@ -40,6 +40,7 @@
 
 #include "G4UImanager.hh"
 //#include "QBBC.hh"
+#include "G4HumanPhantomPhysicsList.hh"
 #include "PhysicsList.hh"
 #include "Shielding.hh"
 #include "G4PhysListFactory.hh"
@@ -80,13 +81,14 @@ int main(int argc,char** argv)
   // Physics list
  // G4VModularPhysicsList* phys = new Shielding();
 //  runManager->SetUserInitialization(phys);
+
   G4PhysListFactory factory;
-  G4VModularPhysicsList *phys = factory.GetReferencePhysList("QGSP_BERT_HP_EMY");
+  G4VModularPhysicsList *phys = factory.GetReferencePhysList("QBBC_EMZ");
 //  physicsList->RegisterPhysics(new G4ImportanceBiasing(&mgs));
   
 //PhysicsList* phys = new PhysicsList;
-
-  phys->SetVerboseLevel(0);
+  
+//  phys->SetVerboseLevel(0);
 //  physicsList->SetDefaultCutValue(0.5);
   runManager->SetUserInitialization(phys);
    
