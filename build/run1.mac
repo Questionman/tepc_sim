@@ -23,6 +23,6 @@
 /gps/ang/maxtheta 90 deg
 /gps/source/list
 /run/printProgress 1000000
-/control/suppressAbortion
+/control/suppressAbortion 2
 /tracking/verbose 0
 /run/beamOn 500000000
