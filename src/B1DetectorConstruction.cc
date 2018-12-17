@@ -99,9 +99,9 @@ G4VPhysicalVolume* B1DetectorConstruction::Construct()
   
   // Mars Atmosphere
   G4double atmosphere_inner_radius = 6.980001*cm;
-  G4double world_size = 0.5*m;
+  G4double world_size = 0.2*m;
   G4double atmosphere_outer_radius = 0.4999*world_size; // m 
-  G4Material* atmosphere_mat = new G4Material("Mars_atmosphere", 1.348*g/cm3,3);
+  G4Material* atmosphere_mat = new G4Material("Mars_atmosphere", 4.997*g/cm3,3);
   atmosphere_mat->AddMaterial(nist->FindOrBuildMaterial("G4_CARBON_DIOXIDE"),0.957);
   atmosphere_mat->AddMaterial(nist->FindOrBuildMaterial("G4_lN2"),0.027);
   atmosphere_mat->AddMaterial(nist->FindOrBuildMaterial("G4_Ar"), 0.016);
@@ -162,31 +162,31 @@ G4VPhysicalVolume* B1DetectorConstruction::Construct()
   //-----------------------------------------------------
   // Regolith
   
-  G4double regolith_depth = 0.99*0.25*m;
+  G4double regolith_depth = 0.99*0.1*m;
   G4Box* solidRegolith = new G4Box("Regolith", 0.4999*world_size, 0.4999*world_size, 0.5*regolith_depth);
   G4LogicalVolume* logicRegolith = new G4LogicalVolume(solidRegolith, regolith_mat, "Regolith");
-  logicRegolith->SetUserLimits(new G4UserLimits(10*cm));
+  logicRegolith->SetUserLimits(new G4UserLimits(1*mm));
   new G4PVPlacement(0,G4ThreeVector(0,0, -0.5*regolith_depth), logicRegolith, "Regolith", logicWorld, false,5, true);
   
   //------------------------------------------------------
   //Atmosphere
   G4Sphere* solidAtmosphere = new G4Sphere("Atmosphere", atmosphere_inner_radius, atmosphere_outer_radius, 0, 360*degree, 0, 90*degree);
   G4LogicalVolume* logicAtmosphere = new G4LogicalVolume(solidAtmosphere,atmosphere_mat, "Atmosphere");
-  logicAtmosphere->SetUserLimits(new G4UserLimits(10*cm));
+  logicAtmosphere->SetUserLimits(new G4UserLimits(1*mm));
   new G4PVPlacement(0, G4ThreeVector(0,0,0.00001*cm), logicAtmosphere,"Atmosphere",logicWorld,false,6, true);
 
   //------------------------------------------------------
   // Shield1 - Aluminium (6.8mm - ISS)
   G4Sphere* solidShield = new G4Sphere("Shield_Al", 6.300001*cm,6.98*cm, 0, 360*degree, 0, 90*degree);
   G4LogicalVolume* logicShield = new G4LogicalVolume(solidShield, nist->FindOrBuildMaterial("G4_Al"), "Shield_Al");
-  logicShield->SetUserLimits(new G4UserLimits(1*mm));
+  logicShield->SetUserLimits(new G4UserLimits(1*um));
   new G4PVPlacement(0, G4ThreeVector(0,0,0.00001*cm), logicShield, "Shield_Al", logicWorld, false, 7, true);
    
   //------------------------------------------------------
   // Shield2 - Mars regolith 1cm
   G4Sphere* solidShield2 = new G4Sphere("Shield_Mars_regolith", 5.3*cm,6.3*cm,0,360*degree,0, 90*degree);
   G4LogicalVolume* logicShield2 = new G4LogicalVolume(solidShield2, regolith_mat, "Shield_Mars_Regolith");
-  logicShield->SetUserLimits(new G4UserLimits(1*mm));
+  logicShield->SetUserLimits(new G4UserLimits(1*um));
   new G4PVPlacement(0, G4ThreeVector(0,0,0.00001*cm), logicShield2, "Shield_Mars_Regolith", logicWorld, false, 8, true);
    
   // -----------------------------------------------------
