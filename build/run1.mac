@@ -1,11 +1,11 @@
 /run/numberOfThreads 96
 /run/initialize
-/gps/particle ion
-/gps/ion 26 56
+/gps/particle proton
+#/gps/ion 26 56
 /gps/ene/type Arb
 /gps/ene/diffspec 1
 /gps/hist/type arb
-/control/execute /home/ho09diti/GCR_PRIMARY/Z26_A56.mac
+/control/execute /home/ho09diti/GCR_PRIMARY/Z1_A1.mac
 /gps/hist/inter Lin
 
 /gps/pos/type Surface
@@ -25,4 +25,4 @@
 /run/printProgress 1000000
 /control/suppressAbortion 2
 /tracking/verbose 0
-/run/beamOn 100000000
+/run/beamOn 1000000000

@@ -165,14 +165,14 @@ G4VPhysicalVolume* B1DetectorConstruction::Construct()
   G4double regolith_depth = 0.99*0.1*m;
   G4Box* solidRegolith = new G4Box("Regolith", 0.4999*world_size, 0.4999*world_size, 0.5*regolith_depth);
   G4LogicalVolume* logicRegolith = new G4LogicalVolume(solidRegolith, regolith_mat, "Regolith");
-  logicRegolith->SetUserLimits(new G4UserLimits(1*mm));
+  logicRegolith->SetUserLimits(new G4UserLimits(1*um));
   new G4PVPlacement(0,G4ThreeVector(0,0, -0.5*regolith_depth), logicRegolith, "Regolith", logicWorld, false,5, true);
   
   //------------------------------------------------------
   //Atmosphere
   G4Sphere* solidAtmosphere = new G4Sphere("Atmosphere", atmosphere_inner_radius, atmosphere_outer_radius, 0, 360*degree, 0, 90*degree);
   G4LogicalVolume* logicAtmosphere = new G4LogicalVolume(solidAtmosphere,atmosphere_mat, "Atmosphere");
-  logicAtmosphere->SetUserLimits(new G4UserLimits(1*mm));
+  logicAtmosphere->SetUserLimits(new G4UserLimits(1*um));
   new G4PVPlacement(0, G4ThreeVector(0,0,0.00001*cm), logicAtmosphere,"Atmosphere",logicWorld,false,6, true);
 
   //------------------------------------------------------
