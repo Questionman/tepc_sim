@@ -10,7 +10,7 @@
 
 /gps/pos/type Surface
 /gps/pos/shape Sphere
-/gps/pos/radius 24.99 cm
+/gps/pos/radius 9.99 cm
 /gps/pos/centre 0 0 0 
 
 /gps/hist/type biaspt
