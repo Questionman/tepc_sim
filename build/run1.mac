@@ -1,7 +1,7 @@
 /run/numberOfThreads 96
 /run/initialize
 /gps/particle proton
-#/gps/ion 26 56
+#/gps/ion 7 14
 /gps/ene/type Arb
 /gps/ene/diffspec 1
 /gps/hist/type arb
@@ -23,6 +23,5 @@
 /gps/ang/maxtheta 90 deg
 /gps/source/list
 /run/printProgress 1000000
-/control/suppressAbortion 2
 /tracking/verbose 0
 /run/beamOn 1000000000
